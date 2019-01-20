@@ -1,0 +1,43 @@
+
+
+1. /etc/login.defs /etc/inittab /boot/grub2/grub.cfg 파일을 확인하고
+   3개의 파일 /backup 디렉토리 생성한 뒤 복사
+=>	1) ls -l /etc/login.defs /etc/inittab /boot/grub2/grub.cfg
+	2) mkdir /backup
+	3) cp /boot/grub2/grub.cfg /backup
+	4) cp /etc/inittab /backup
+	5) cp /etc/login.defs /backup
+	6)=> 확인 : ls -l /backup
+---------------------------------------------------------------
+한꺼번에 복사하는 방법 : 
+cp /boot/grub2/grub.cfg /etc/inittab /etc/login.defs /backup
+(가장 마지막에 있는 디렉토리가 복사대상이 됨)
+---------------------------------------------------------------
+
+2. /backup에 있는 3개의 파일
+   /backup/test 디렉토리에 각각 login init grub 란 이름으로 이름변경 복사
+=> 	1) mkdir /backup/test
+	2) cp /backup/login.defs /backup/test/login
+	3) cp /backup/inittab /backup/test/init
+	4) cp /backup/grub.cfg /backup/test/grup
+
+3. /backup에 test1 이라는 파일 ,
+	/backup/test 에 test2 라는 파일을 한줄명령어로 생성
+=>	touch /backup/test1 /backup/test/test2
+
+4. /backup/test 디렉토리를
+	 /home/test/c/d/linux란 이름이 되도록  이름변경 보존 복사
+=>	1)mkdir -p /home/test/c/d
+	2)cp -rp /backup/test /home/test/c/d/linux
+
+--------------------------------------------------------------------------
+
+5. /home으로 이동(cd /home) 한뒤
+	경로를 변경하지 않고 /backup안에 있는 파일들 4개를 /home/test/c/d/linux
+	 디렉토리에 한줄명령으로 보존복사 (이름변경및 디렉토리 복사 금지)
+=> cp -p  /backup/grub.cfg /backup/inittab /backup/login.defs \
+> /backup/test1 /home/test/c/d/linux
+
+(역슬래쉬를 하면 다음줄에서 사용가능하다.)
+
+

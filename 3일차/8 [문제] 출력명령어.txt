@@ -1,0 +1,20 @@
+1. /output 디렉토리 만든 후 /etc/passwd, /etc/inittab, /etc/login.defs 를 복사
+mkdir /output
+cp /etc/passwd /etc/inittab /etc/login.defs /output
+
+2./output/login.defs 의 내용을 위에서부터 5줄만 확인하세요
+head -5 /output/login.defs
+
+3./output/inittab 의 내용을 아래서부터 5줄만 확인하세요
+tail -5 /output/inittab
+
+4./output/passwd의 내용을 화면 크기만큼 끊어서 확인하세요
+more /output/passwd
+
+5. /output/passwd의 내용을 행번호를 붙여서 확인해보세요
+cat -n /output/passwd
+
+6. find 명령어를 이용해서 /output 디렉토리 안의 login.defs , inittab, passwd의 
+내용을 위로 5행만 출력하는 alias a1 을 만들고 실행해서 확인해 보세요
+alias a1='find /output/* -exec head -5 {} \;'
+

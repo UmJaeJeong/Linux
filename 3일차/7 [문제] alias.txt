@@ -1,0 +1,32 @@
+/aliastest 디렉토리를 삭제후에 진행하세요 (rm -rf /aliastest )
+
+1./aliastest 디렉토리를 만드는 alias a1 을 생성하세요
+alias a1='mkdir /aliastest'
+
+2. /aliastest 안에 빈파일 test1 test2 test3 을만드는 alias a2 를 생성하세요
+alias a2='touch /aliastest/test1 /aliastest/test2 /aliastest/test3'
+
+3. /aliastest 안의 빈파일 test1 test2 test3 의 시간을 11:30으로 
+으로 변경하는 alias a3 을 생성하세요
+alias a3='touch -d 11:30 /aliastest/test1 /aliastest/test2 /aliastest/test3'
+
+4. find 명령어를 이용해서 login.defs, passwd, inittab 을 /aliastest 디렉토리로
+복사시키는 alias a4를 생성하세요
+test]#alias a4='find / -maxdepth 2 -name login.defs -exec cp {} /aliastest \;  > find / -maxdepth 2 -name passwd -exec cp {} /aliastest \;
+> find / -maxdepth 2 -name passwd -exec cp {} /aliastest \;'
+
+
+5. a1,a2,a3,a4 를 한번에 사용할 수 있는 alias a5 를 만드세요
+-> alias a5='a1
+a2
+a3
+a4'
+a5
+
+6. /aliastest 를 삭제하는 alias a6를 생성하세요
+-> alias a6='rm -rf /aliastest'
+a6
+
+
+
+

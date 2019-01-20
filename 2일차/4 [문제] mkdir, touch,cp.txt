@@ -1,0 +1,18 @@
+1. /final 이라는 디렉토리 생성
+mkdir final
+  
+2. /final 디렉토리에 12, 34, 56 이라는 파일생성
+touch /final 12 34 56
+
+3. 34파일의 시간을 1999년 01월 01일 12:00 으로 변경
+touch -t 199901011200 34
+
+4. /back 이라는 디렉토리 생성
+mkdir back
+
+5. /final 의 12 ,56 파일을 /back  디렉토리에 복사
+cp /final/12 56 /back
+
+6. /final 의 34 파일을 /back 디렉토리에 보존복사
+cp -p /final/34 /back
+

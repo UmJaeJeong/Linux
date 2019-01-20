@@ -1,0 +1,21 @@
+1. /test, /movedir 디렉토리 생성, /test디렉토리안에  1,2,3,4 파일 aa, ab, bb, aba, bab 생성
+mkdir /test /movedir 
+cd /test
+touch 1 2 3 4
+mkdir aa ab bb aba bab
+
+2. find 명령어로 /test에 파일만 검색해서 /movedir 로 복사
+find /test/* -type f -exec cp {} /movedir \;
+
+3. find 명령어로 /test에 디렉토리 중 첫문자가 a인 모든 문자를 검색해서  /movedir 에 이동
+find /test/* -name "a*" -exec mv {} /movedir \;
+
+4. find 명령어로 /test에 디렉토리 중 b를 포함하는 문자를 검색해서 /movedir 에 이동
+find /test/* -name "*b*" -exec mv {} /movedir \;
+
+5. find 명령어를 이용해서 size가 약 50M 이상인 파일만 /movedir로 복사
+find / -size +50M -exec cp {} /movedir \;
+
+6. find 명령어를 이용해서 /movedir '안'의 모든 파일&디렉토리를 삭제
+find /movedir/* -exec rm -rf {} \;
+
