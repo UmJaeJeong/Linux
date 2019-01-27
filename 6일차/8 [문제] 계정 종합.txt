@@ -1,0 +1,28 @@
+
+1. /etc/skel 디렉토리를 /testskel 라는 이름으로 복사하고
+	/testskel 안에 test라는 디렉토리를 생성하세요
+
+
+2. useradd 명령 한번만으로 다음 조건으로 계정을 생성하세요
+
+계정명 : test12
+UID : 5000
+계정설명 : heathtest
+홈 디렉토리 경로 : /export/home
+쉘 지정 : /bin/ksh
+skel : /testskel 
+
+
+3. 기본 계정 생성 홈 디렉토리를 /export/home으로 
+기본 계정 생성 쉘(/bin/bash)을 콘쉘(/bin/ksh) 로 지정한 뒤 user1 이라는 계정을 만드세요
+	(useradd 옵션 사용하지 말 것)
+
+4. 기본 계정 생성 홈 디렉토리를 /home으로 
+기본 계정 생성 쉘을 배쉬쉘로 지정한 뒤 user2 이라는 계정을 만드세요
+	(계정 생성 시 public_html 디렉토리가 홈디렉토리에 자동생성이 되도록 하세요)
+
+5. /export/home/user3 라는 디렉토리를 생성하세요
+
+6. /export/home/user3 디렉토리를 삭제하지 말고
+	홈 디렉토리가 /export/home/user3 인 계정 user3를 만드세요
+	(user3 계정으로 접속 시, bash쉘의 명령 프롬프트가 정상적으로 동작하도록 하세요)

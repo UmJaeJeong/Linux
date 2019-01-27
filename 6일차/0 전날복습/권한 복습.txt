@@ -1,0 +1,48 @@
+[환경]
+mkdir /modtest
+cd /modtest
+touch a b c 
+mkdir m1 m2 m3 m4
+
+
+1. 
+user1 계정 modtest 디렉토리 접근 불가(-x) = 0
+user2 계정 modtest 접근가능(+x) 목록보기x(-r)내부 파일 생성 불가(-w) = __x = 1
+user3 계정 modtest 디렉토리 접근 가능(+x) 목록보기 가능(+r) 파일 생성 불가(-w) = r_x = 5
+
+chown user3.user2 /modtest
+chmod 510 /modtest
+ls -ld /modtest
+dr_x__x___	user3 user2	/modtest
+
+
+2.
+user3 계정 modtest 디렉토리 내부 a파일 읽기불가(-r)
+user3 계정 modtest 디렉토리 내부 b파일 읽기가능(+r)
+user3 계정 modtest 디렉토리 내부 c파일 읽기,수정가능(+rw)
+
+chown .user3 /modtest/a
+chown .user3 /modtest/b
+chown .user3 /modtest/c
+chmod g-r /modtest/a
+chmod g+w /modtest/c
+
+
+3.
+user2 계정 /modtest 내의 m1 디렉토리 접근가능(+x) 파일생성가능(+w) 내부 보기 불가(-r) ->_wx = 3
+user2 계정 /modtest 내의 m2 디렉토리 접근불가(-x) 파일생성가능(+w) 내부 보기 가능(+r) ->rw_ = 6
+user3 계정 /modtest 내의 m3 디렉토리 접근가능(+x) 파일생성 불가(-w) 내부보기 가능(+r) ->r_x = 5
+user3 계정 /modtest 내의 m4 디렉토리 접근불가(-x) 파일생성 불가(-w) 내부 보기 가능(+r)->r__ = 4
+
+chown .user2 /modtest/m1
+chown .user2 /modtest/m2
+chmod g=wx /modtest/m1
+chmod g=rw /modtest/m2
+chown .user3 /modtest/m3
+chown .user3 /modtest/m4
+chmod g=rx /modtest/m3
+chmod g=r /modtest/m4
+
+
+
+

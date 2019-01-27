@@ -1,0 +1,93 @@
+
+1. 답
+rm -rf /testskel
+cp -r /etc/skel /testskel
+mkdir /testskel/test
+
+
+2. 답
+mkdir -p /export/home
+useradd -u 600 -c heathteset -d /export/home/test12 -s /bin/ksh -mk /testskel test12
+
+
+3. 답
+
+vi /etc/default/useradd
+
+
+# useradd defaults file
+GROUP=100
+HOME=/export/home
+INACTIVE=-1
+EXPIRE=
+SHELL=/bin/ksh
+SKEL=/etc/skel
+CREATE_MAIL_SPOOL=yes
+
+:wq
+
+useradd user1
+
+
+4. 답
+
+vi /etc/default/useradd
+
+# useradd defaults file
+GROUP=100
+HOME=/home
+INACTIVE=-1
+EXPIRE=
+SHELL=/bin/bash
+SKEL=/skeltest
+CREATE_MAIL_SPOOL=yes
+
+:wq
+
+mkdir /skeltest/public_html
+useradd user2
+
+
+
+5. 답
+
+mkdir -p /export/home/user3
+
+6. 답
+
+vi /etc/passwd
+	
+user3:x:603:603::/export/home/user3:/bin/bash		--추가 후 저장나가기
+
+
+vi /etc/group
+
+user3:x:603:						--추가 후 저장나가기
+
+cd /etc/skel
+
+cp -r .????* /export/home/user3			 	--skel 복사
+
+cp -p /var/spool/mail/user1 /var/spool/mail/user3	--mail함 복사
+
+chown user3. /var/spool/mail/user3			--user3의 소유자 변환
+
+
+passwd user3						--user3비밀번호설정
+
+su user3						--user3접속
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

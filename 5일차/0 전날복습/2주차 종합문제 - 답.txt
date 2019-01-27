@@ -1,0 +1,39 @@
+2주차 종합 문제
+
+[환경]
+rm -rf /test
+mkdir /test
+
+
+하드웨어 시간과 시스템시관과 타임서버로 부터 받아온 시간의 출력된 결과물을
+저장하는 alltime 이라는 파일을 /test디렉토리에 저장하는 단축키 a1을 만드세요
+
+a1='hwclock && date && rdate time.bora.net > /test/alltime'
+
+/etc/login.defs /etc/inittab /etc/profile /etc/passwd /etc/shadow 파일을 /test디렉토리에 복사하는 단축키 a2 을 만드세요
+
+ailas a2='cp etc/login.defs /etc/inittab /etc/profile /etc/passwd /etc/shadow /test'
+
+find 명령어로 /test안의 모든 파일(/test는 검색이 안되어야함-힌트 와일드카드를 쓰면됩니다.)의 위로부터 2줄씩
+출력되게 하는 결과를  /test/head2라는 파일에 저장되게 하는  단축키 a3를 만드세요  
+
+alias a3='find /test/* -exec head -2 {} \; >/test/head2'
+
+a1,a2,a3을 한번에 실행 시키는 a4는 만들고 a4를 실행시키세요
+
+vi명령어로 /test 안에 있는 passwd 와 shadow 파일을 동시에 실행시키세요
+
+passwd파일의 모든 x문자를 AOA로 치환하세요
+
+shadow파일의 모든 !를 $로 치환하세요
+
+passwd파일의 1행부터 4행을 복사해서 shadow의 첫행에 붙여 넣으세요
+
+현재 위치에서(shadow파일 안) /test디렉토리의 목록에 행번호를 붙여서 나오는 출력결과를 shadow의 내용으로 가져오세요
+
+
+
+
+
+
+
